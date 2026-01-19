@@ -4,21 +4,21 @@
 
 Run mock tests to verify code logic without AWS:
 
-```cmd
-REM Test API Server
-cd c:\dev\PythonProject1dd\api
+```bash
+# Test API Server
+cd api
 python test_server.py
 
-REM Test Lambda Processor
-cd ..\lambda\processor
+# Test Lambda Processor
+cd ../lambda/processor
 python test_processor.py
 
-REM Test Lambda Compactor
-cd ..\compactor
+# Test Lambda Compactor
+cd ../compactor
 python test_compactor.py
 
-REM Run all tests
-cd c:\dev\PythonProject1dd
+# Run all tests (from project root)
+cd ../..
 python test_all.py
 ```
 
@@ -67,25 +67,25 @@ BATCH_FLUSH_MS=500
 ### Testing with Real AWS
 
 1. **Create .env file:**
-   ```cmd
-   cd c:\dev\PythonProject1dd\api
-   copy .env.example .env
+   ```bash
+   cd api
+   cp .env.example .env  # On Windows: copy .env.example .env
    ```
    Then edit `.env` with your actual values.
 
 2. **Test API Server:**
-   ```cmd
-   cd c:\dev\PythonProject1dd\api
+   ```bash
+   cd api
    python server.py
    ```
 
 3. **Test Health Endpoint:**
-   ```cmd
+   ```bash
    curl http://127.0.0.1:4000/health
    ```
 
 4. **Test Ingest Endpoint:**
-   ```cmd
+   ```bash
    curl -X POST http://127.0.0.1:4000/ingest -H "Content-Type: application/json" -d "{\"events\":[{\"schema\":1,\"event_id\":\"test\",\"event_ts\":1234567890,\"event_type\":\"video_start\",\"client_session_id\":\"test\",\"tab_id\":\"test\",\"video_id\":\"test123\",\"video_session_id\":\"test\"}]}"
    ```
 
