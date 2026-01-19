@@ -1,0 +1,32 @@
+# python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.venv/
+venv/
+.env
+*.log
+
+# local data
+data/
+*.ndjson
+
+# node (if you add later)
+node_modules/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# chrome extension build artifacts (if any)
+dist/
+
+# IDEs
+.idea/
+*.iml
+.vscode/
+
+# AWS
+*.pem
+*.key
